@@ -1,0 +1,31 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <button class="btn btn-info" [routerLink]="['/cliente-form']">Nuevo Cliente</button>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12">
+      <table class="table">
+          <thead>
+          <tr>
+            <th>Id</th>
+            <th>Nombre</th>
+            <th>Apellido</th>
+            <th>Edad</th>
+            <th>Email</th>
+          </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let cliente of clientes">
+            <td>{{cliente.id}}</td>
+            <td>{{cliente.nombre}}</td>
+            <td>{{cliente.apellido}}</td>
+            <td>{{cliente.edad}}</td>
+            <td>{{cliente.email}}</td>
+            </tr>
+          </tbody>
+      </table>
+    </div>
+  </div>
+</div>
