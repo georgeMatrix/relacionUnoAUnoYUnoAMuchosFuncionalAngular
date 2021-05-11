@@ -17,9 +17,13 @@ import {ReactiveFormsModule} from '@angular/forms';
 const MENU: Routes = [
   {path: 'clientes', component: ClienteComponent},
   {path: 'cliente-form', component: ClienteFormComponent},
+  {path: 'cliente-form/:id', component: ClienteFormComponent},
   {path: 'datos-fiscales', component: DatosFiscalesComponent},
-  {path: 'producto', component: ProductoComponent},
-  {path: 'producto-form', component: ProductoFormComponent}
+  {path: 'datos-fiscales-form', component: DatosFiscalesFormComponent},
+  {path: 'datos-fiscales-form/:id', component: DatosFiscalesFormComponent},
+  {path: 'productos', component: ProductoComponent},
+  {path: 'producto-form', component: ProductoFormComponent},
+  {path: 'producto-form/:id', component: ProductoFormComponent}
 ];
 
 @NgModule({

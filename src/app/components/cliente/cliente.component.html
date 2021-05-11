@@ -14,6 +14,8 @@
             <th>Apellido</th>
             <th>Edad</th>
             <th>Email</th>
+            <th>Editar</th>
+            <th>Eliminar</th>
           </tr>
           </thead>
           <tbody>
@@ -23,6 +25,7 @@
             <td>{{cliente.apellido}}</td>
             <td>{{cliente.edad}}</td>
             <td>{{cliente.email}}</td>
+            <td><button [routerLink]="['/cliente-form', cliente.id]" class="btn btn-info">Editar</button></td>
             </tr>
           </tbody>
       </table>

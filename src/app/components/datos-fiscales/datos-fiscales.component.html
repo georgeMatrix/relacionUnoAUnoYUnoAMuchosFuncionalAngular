@@ -1,12 +1,23 @@
 <div class="container">
   <div class="row">
     <div class="col-md-12">
+      <h1>Datos Fiscales</h1>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12">
+      <button class="btn btn-success" [routerLink]="['/datos-fiscales-form']">Nuevo Dato Fiscal</button>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12">
       <table class="table">
         <thead>
           <tr>
-            <td>id</td>
-            <td>rfc</td>
-            <td>curp</td>
+            <th>id</th>
+            <th>rfc</th>
+            <th>curp</th>
+            <th>Editar</th>
           </tr>
         </thead>
         <tbody>
@@ -14,6 +25,7 @@
             <td>{{df.id}}</td>
             <td>{{df.rfc}}</td>
             <td>{{df.curp}}</td>
+            <td><button class="btn btn-success" [routerLink]="['/datos-fiscales-form', df.id]">Editar</button></td>
           </tr>
         </tbody>
       </table>

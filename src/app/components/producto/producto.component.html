@@ -1,18 +1,35 @@
 <div class="container">
   <div class="row">
     <div class="col-md-12">
+      <h1>Productos</h1>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12">
       <button class="btn btn-info" [routerLink]="['/producto-form']">Nuevo Producto</button>
     </div>
   </div>
   <div class="row">
     <div class="col-md-12">
       <table class="table">
-        <tr *ngFor="let producto of productos">
-          <td>{{producto.id}}</td>
-          <td>{{producto.nombre}}</td>
-          <td>{{producto.clave}}</td>
-          <td>{{producto.precio}}</td>
-        </tr>
+        <thead>
+          <tr>
+            <th>Id</th>
+            <th>Nombre</th>
+            <th>Clave</th>
+            <th>Precio</th>
+            <th>Editar</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let producto of productos">
+            <td>{{producto.id}}</td>
+            <td>{{producto.nombre}}</td>
+            <td>{{producto.clave}}</td>
+            <td>{{producto.precio}}</td>
+            <td><button class="btn btn-info" [routerLink]="['/producto-form', producto.id]">Editar</button></td>
+          </tr>
+        </tbody>
       </table>
     </div>
   </div>

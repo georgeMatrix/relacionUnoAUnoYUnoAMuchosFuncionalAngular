@@ -1,22 +1,39 @@
 <div class="container">
   <div class="row">
     <div class="col-md-12">
-      <form>
+      <h1>Productos</h1>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12">
+      <form [formGroup]="formGroupProducto">
+        <div class="form-group">
+          <label for="">Clientes</label>
+          <select formControlName="idCliente" class="form-control">
+            <option [value]="cliente.id" *ngFor="let cliente of clientes">{{cliente.nombre}}</option>
+          </select>
+        </div>
+        <input type="text" formControlName="id" [hidden]="true">
         <div class="form-group">
           <label for="">Nombre</label>
-          <input type="text">
+          <input type="text" formControlName="nombre" class="form-control">
         </div>
         <div class="form-group">
           <label for="">Clave</label>
-          <input type="text">
+          <input type="text" formControlName="clave" class="form-control">
         </div>
         <div class="form-group">
           <label for="">Precio</label>
-          <input type="text">
+          <input type="text" formControlName="precio" class="form-control">
         </div>
         <div class="form-group">
-          <button class="btn btn-success">Guardar</button>
+          <button class="btn btn-success" (click)="guardarProducto(formGroupProducto.value)" *ngIf="!formGroupProducto.value.id else updateP">Guardar</button>
         </div>
+        <ng-template #updateP>
+          <div class="form-group">
+            <button class="btn btn-warning" (click)="updateProducto(formGroupProducto.value)">Editar</button>
+          </div>
+        </ng-template>
       </form>
     </div>
   </div>
