@@ -1,7 +1,7 @@
 <div class="container">
   <div class="row">
     <div class="col-md-12">
-      <button class="btn btn-info" [routerLink]="['/cliente-form']">Nuevo Cliente</button>
+      <button class="btn btn-info" [routerLink]="['/provedor-form']">Nuevo Provedor</button>
     </div>
   </div>
   <div class="row">
@@ -19,13 +19,13 @@
           </tr>
           </thead>
           <tbody>
-            <tr *ngFor="let cliente of clientes">
-            <td>{{cliente.id}}</td>
-            <td>{{cliente.nombre}}</td>
-            <td>{{cliente.apellido}}</td>
-            <td>{{cliente.edad}}</td>
-            <td>{{cliente.email}}</td>
-            <td><button [routerLink]="['/cliente-form', cliente.id]" class="btn btn-info">Editar</button></td>
+            <tr *ngFor="let provedor of provedores">
+            <td>{{provedor.id}}</td>
+            <td>{{provedor.nombre}}</td>
+            <td>{{provedor.apellido}}</td>
+            <td>{{provedor.edad}}</td>
+            <td>{{provedor.email}}</td>
+            <td><button [routerLink]="['/provedor-form', provedor.id]" class="btn btn-info">Editar</button></td>
             </tr>
           </tbody>
       </table>

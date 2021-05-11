@@ -4,20 +4,20 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent } from './app.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { MenuComponent } from './components/menu/menu.component';
-import { ClienteComponent } from './components/cliente/cliente.component';
 import {RouterModule, Routes} from '@angular/router';
 import { ProductoComponent } from './components/producto/producto.component';
 import { DatosFiscalesComponent } from './components/datos-fiscales/datos-fiscales.component';
 import {HttpClientModule} from '@angular/common/http';
-import { ClienteFormComponent } from './components/cliente-form/cliente-form.component';
+import { ProvedorFormComponent } from './components/provedor-form/provedor-form.component';
 import { ProductoFormComponent } from './components/producto-form/producto-form.component';
 import { DatosFiscalesFormComponent } from './components/datos-fiscales-form/datos-fiscales-form.component';
 import {ReactiveFormsModule} from '@angular/forms';
+import {ProvedorComponent} from './components/provedor/provedor.component';
 
 const MENU: Routes = [
-  {path: 'clientes', component: ClienteComponent},
-  {path: 'cliente-form', component: ClienteFormComponent},
-  {path: 'cliente-form/:id', component: ClienteFormComponent},
+  {path: 'provedores', component: ProvedorComponent},
+  {path: 'provedor-form', component: ProvedorFormComponent},
+  {path: 'provedor-form/:id', component: ProvedorFormComponent},
   {path: 'datos-fiscales', component: DatosFiscalesComponent},
   {path: 'datos-fiscales-form', component: DatosFiscalesFormComponent},
   {path: 'datos-fiscales-form/:id', component: DatosFiscalesFormComponent},
@@ -30,10 +30,10 @@ const MENU: Routes = [
   declarations: [
     AppComponent,
     MenuComponent,
-    ClienteComponent,
+    ProvedorComponent,
     ProductoComponent,
     DatosFiscalesComponent,
-    ClienteFormComponent,
+    ProvedorFormComponent,
     ProductoFormComponent,
     DatosFiscalesFormComponent
   ],

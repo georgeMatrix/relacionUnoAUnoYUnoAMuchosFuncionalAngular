@@ -2,8 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {ActivatedRoute, Router} from '@angular/router';
 import {ProductoService} from '../../service/producto.service';
-import {ClienteService} from "../../service/cliente.service";
-import {Cliente} from "../../model/cliente";
+import {ProvedorService} from '../../service/provedor.service';
+import {Provedor} from '../../model/provedor';
 
 @Component({
   selector: 'app-producto-form',
@@ -12,20 +12,20 @@ import {Cliente} from "../../model/cliente";
 })
 export class ProductoFormComponent implements OnInit {
 formGroupProducto: FormGroup;
-clientes: Cliente[];
+  provedores: Provedor[];
   constructor(private productoService: ProductoService, private formBuilder: FormBuilder, private router: Router,
-              private clienteService: ClienteService, private activatedRoute: ActivatedRoute) {
+              private provedorService: ProvedorService, private activatedRoute: ActivatedRoute) {
     this.formGroupProducto = formBuilder.group({
       id: ['', Validators.required],
       nombre: ['', Validators.required],
       clave: ['', Validators.required],
-      precio: ['', Validators.required],
-      idCliente: ['', Validators.required]
+      precio: ['', Validators.compose([Validators.required, Validators.pattern('^[0-9]*$')])],
+      idProvedor: ['', Validators.required]
     });
   }
 
   ngOnInit(): void {
-    this.clienteService.getClientes().subscribe(clientes => this.clientes = clientes);
+    this.provedorService.getProvedores().subscribe(provedores => this.provedores = provedores);
     this.getProductoById();
   }
   guardarProducto(productos: any): void{
@@ -39,7 +39,6 @@ clientes: Cliente[];
       const id = params.id;
       if (id){
         this.productoService.getProductoById(id).subscribe(response => {
-          // console.log(response);
           this.formGroupProducto.setValue(response);
         });
       }

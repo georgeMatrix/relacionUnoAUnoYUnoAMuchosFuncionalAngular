@@ -1,13 +1,16 @@
 <div class="container">
   <div class="row">
     <div class="col-md-12">
-      <form [formGroup]="formGroupCliente">
+      <form [formGroup]="formGroupProvedor">
         <div class="form-group">
           <input type="text" formControlName="id" [hidden]="true">
         </div>
         <div class="form-group">
           <label for="">Nombre</label>
           <input type="text" formControlName="nombre" class="form-control">
+          <div class="alert alert-danger" *ngIf="formGroupProvedor.get('nombre').hasError('required') && (formGroupProvedor.get('nombre').touched || formGroupProvedor.get('nombre').dirty)">
+            El campo es requerido
+          </div>
         </div>
         <div class="form-group">
           <label for="">Apellido</label>
@@ -22,11 +25,11 @@
           <input type="text" formControlName="email" class="form-control">
         </div>
         <div class="form-group">
-          <button class="btn btn-success" (click)="guardarCliente(formGroupCliente.value)" *ngIf="!formGroupCliente.value.id else update">Guardar</button>
+          <button class="btn btn-success" (click)="guardarProvedor(formGroupProvedor.value)" *ngIf="!formGroupProvedor.value.id else update">Guardar</button>
         </div>
         <ng-template #update>
           <div class="form-group">
-            <button class="btn btn-info" (click)="updateCliente(formGroupCliente.value)">Editar</button>
+            <button class="btn btn-info" (click)="updateProvedor(formGroupProvedor.value)">Editar</button>
           </div>
         </ng-template>
       </form>

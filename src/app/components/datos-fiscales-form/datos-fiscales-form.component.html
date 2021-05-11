@@ -3,9 +3,9 @@
     <div class="col-md-12">
       <form [formGroup]="formGroupDatosFiscales">
         <div class="form-group">
-          <label for="">Cliente</label>
+          <label for="">Provedor</label>
           <select formControlName="id" class="form-control">
-            <option [value]="cliente.id" *ngFor="let cliente of clientes">{{cliente.nombre}}</option>
+            <option [value]="provedor.id" *ngFor="let provedor of provedores">{{provedor.nombre}}</option>
           </select>
         </div>
         <input [hidden]="true" type="text" formControlName="bandera">

@@ -3,5 +3,5 @@ export class Producto {
   nombre: string;
   clave: string;
   precio: number;
-  idCliente: number;
+  idProvedor: number;
 }

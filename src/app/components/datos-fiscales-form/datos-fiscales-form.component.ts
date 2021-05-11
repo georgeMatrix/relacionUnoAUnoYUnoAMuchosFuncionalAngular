@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {Cliente} from '../../model/cliente';
-import {ClienteService} from '../../service/cliente.service';
+import {Provedor} from '../../model/provedor';
+import {ProvedorService} from '../../service/provedor.service';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {DatosFiscalesService} from '../../service/datos-fiscales.service';
 import {ActivatedRoute, Router} from '@angular/router';
@@ -13,10 +13,10 @@ import Swal from 'sweetalert2';
   styleUrls: ['./datos-fiscales-form.component.css']
 })
 export class DatosFiscalesFormComponent implements OnInit {
-clientes: Cliente[];
+provedores: Provedor[];
 formGroupDatosFiscales: FormGroup;
   constructor(private formBuilder: FormBuilder,
-              private clienteService: ClienteService,
+              private provedorService: ProvedorService,
               private datosFiscalesService: DatosFiscalesService,
               private router: Router,
               private activatedRoute: ActivatedRoute) {
@@ -29,7 +29,7 @@ formGroupDatosFiscales: FormGroup;
   }
 
   ngOnInit(): void {
-    this.clienteService.getClientes().subscribe(clientes => this.clientes = clientes);
+    this.provedorService.getProvedores().subscribe(provedores => this.provedores = provedores);
     this.getDatosFiscalesById();
   }
   guardarDatosFiscales(datosFiscales: any): void{
